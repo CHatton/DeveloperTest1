@@ -11,6 +11,7 @@ public class Event {
     private final List<Ticket> tickets; // every event can have 0 or more tickets.
     private final int id; // every event will have a unique id
 
+
     public Event(String name) { // default we have no tickets.
         this(name, new ArrayList<>());
     }

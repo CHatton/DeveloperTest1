@@ -4,7 +4,6 @@ package test.viagogo.worlds;
 import dev.viagogo.events.Event;
 import dev.viagogo.worlds.Point;
 import dev.viagogo.worlds.World;
-import dev.viagogo.worlds.distancemetrics.Manhattan;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import static org.junit.Assert.*;
 public class WorldTest {
 
     private World buildWorld() {
-        World world = new World(new Manhattan());
+        World world = new World();
         world.addEventAt(new Event("Event1"), new Point(0, 0));
         world.addEventAt(new Event("Event2"), new Point(1, 1));
         world.addEventAt(new Event("Event3"), new Point(4, 9));

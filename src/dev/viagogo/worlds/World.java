@@ -21,6 +21,23 @@ public class World {
         events = new HashMap<>();
     }
 
+    public int distanceToEvent(Point start, Event event) {
+        Point eventPoint = getEventPoint(event);
+        return distanceMetric.distanceBetween(start, eventPoint);
+    }
+
+    private Point getEventPoint(Event event) {
+        if (!events.containsValue(event)) {
+            throw new IllegalArgumentException("Event [%s] is not in the world." + event);
+        }
+        for (Map.Entry<Point, Event> entry : events.entrySet()) {
+            if (entry.getValue().equals(event)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
     public void setDistanceMetric(DistanceMetric distanceMetric) {
         this.distanceMetric = distanceMetric;
     }
