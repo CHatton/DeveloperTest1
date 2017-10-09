@@ -1,4 +1,4 @@
-package test.dev.viagogo;
+package dev.viagogo;
 
 import java.util.Optional;
 
