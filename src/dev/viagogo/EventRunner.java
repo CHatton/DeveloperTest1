@@ -1,8 +1,9 @@
 package dev.viagogo;
 
+import dev.viagogo.dev.viagogo.events.Event;
 import dev.viagogo.worlds.Point;
 import dev.viagogo.worlds.World;
-import dev.viagogo.worlds.heuristics.Manhattan;
+import dev.viagogo.worlds.distancemetrics.Manhattan;
 
 public class EventRunner {
     public static void main(String[] args) {

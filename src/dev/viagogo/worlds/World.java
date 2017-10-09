@@ -1,7 +1,7 @@
 package dev.viagogo.worlds;
 
-import dev.viagogo.Event;
-import dev.viagogo.worlds.heuristics.DistanceMetric;
+import dev.viagogo.dev.viagogo.events.Event;
+import dev.viagogo.worlds.distancemetrics.DistanceMetric;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,12 +22,6 @@ public class World {
 
     public void addEventAt(Event event, Point point) {
         events.put(point, event);
-    }
-
-    public Optional<Event> getEventAt(Point point) {
-        return events.get(point) == null ?
-                Optional.empty() :
-                Optional.of(events.get(point));
     }
 
     public List<Event> getClosestEvents(Point point, int n) {

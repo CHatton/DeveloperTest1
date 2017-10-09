@@ -1,4 +1,4 @@
-package dev.viagogo.worlds.heuristics;
+package dev.viagogo.worlds.distancemetrics;
 
 import dev.viagogo.worlds.Point;
 

@@ -1,4 +1,4 @@
-package dev.viagogo;
+package dev.viagogo.dev.viagogo.events;
 
 public class Ticket {
     // using int to represent price in pennies to avoid floating point
