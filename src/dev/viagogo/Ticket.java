@@ -15,4 +15,9 @@ public class Ticket {
     public int getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return String.format("{price=%s}", price);
+    }
 }
