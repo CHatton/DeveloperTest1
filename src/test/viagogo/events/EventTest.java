@@ -1,9 +1,10 @@
 package test.viagogo.events;
 
-import dev.viagogo.dev.viagogo.events.Event;
-import dev.viagogo.dev.viagogo.events.Ticket;
+import dev.viagogo.events.Event;
+import dev.viagogo.events.Ticket;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -12,12 +13,14 @@ public class EventTest {
 
     @Test
     public void testCheapestTicketIsCheapest() {
-        Event e1 = new Event("Event1");
-        e1.addTicket(new Ticket(1000));
-        e1.addTicket(new Ticket(5000));
-        e1.addTicket(new Ticket(2000));
-        e1.addTicket(new Ticket(500));
-        e1.addTicket(new Ticket(4000));
+        Event e1 = new Event("Event1", Arrays.asList(
+                new Ticket(1000),
+                new Ticket(5000),
+                new Ticket(2000),
+                new Ticket(500),
+                new Ticket(4000)
+        ));
+
         Optional<Ticket> cheapest = e1.getCheapestTicket();
         assertTrue(cheapest.isPresent());
         assertEquals(500, cheapest.get().getPrice());

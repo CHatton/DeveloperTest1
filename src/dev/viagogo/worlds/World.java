@@ -1,7 +1,8 @@
 package dev.viagogo.worlds;
 
-import dev.viagogo.dev.viagogo.events.Event;
+import dev.viagogo.events.Event;
 import dev.viagogo.worlds.distancemetrics.DistanceMetric;
+import dev.viagogo.worlds.distancemetrics.Manhattan;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,7 +10,11 @@ import java.util.stream.Collectors;
 public class World {
 
     private DistanceMetric distanceMetric;
-    private Map<Point, Event> events;
+    private final Map<Point, Event> events;
+
+    public World() {
+        this(new Manhattan());
+    }
 
     public World(DistanceMetric distanceMetric) {
         this.distanceMetric = distanceMetric;
@@ -35,5 +40,9 @@ public class World {
         }).limit(numToReturn) // we only want n results (e.g. 5 closest)
                 .map(events::get) // get the corresponding event happening at that point
                 .collect(Collectors.toList()); // give them back as a list.
+    }
+
+    public List<Event> getClosestEvents(Point point) {
+        return getClosestEvents(point, 5);
     }
 }
