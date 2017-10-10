@@ -71,17 +71,19 @@ public class EventRunner {
                 break;
             case 3:
                 System.out.println("Goodbye!");
+                //sc.close();
                 System.exit(0);
                 break;
             default:
                 System.out.println("Please enter a valid option.");
         }
+       // sc.close();
     }
 
     private static void displayEventInformation(Event event, Point origin, World world) {
         StringBuilder sb = new StringBuilder();
         int id = event.getId();
-        sb.append(String.format("Event %03d - ", id));
+        sb.append(String.format("Event ID: %03d - ", id));
         Optional<Ticket> cheapestTicket = event.getCheapestTicket();
         if (cheapestTicket.isPresent()) {
             sb.append(String.format("$%.2f - ", cheapestTicket.get().getPrice() / 100.0));
