@@ -42,4 +42,6 @@ public class EventTest {
         Optional<Ticket> cheapest = e1.getCheapestTicket();
         assertFalse(cheapest.isPresent());
     }
+
+
 }

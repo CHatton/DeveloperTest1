@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class WorldTest {
 
@@ -49,5 +50,57 @@ public class WorldTest {
         assertEquals("Event5", closestEvents.get(3).getName());
         assertEquals("Event6", closestEvents.get(4).getName());
     }
+
+    @Test
+    public void testDistanceToEventThatDoesntExistIsNegative() {
+        EventFactory fact = new EventFactory();
+        Event e1 = fact.newEvent("E1");
+        Event e2 = fact.newEvent("E2");
+        Event e3 = fact.newEvent("E3");
+        Event e4 = fact.newEvent("E4");
+        Map<Point, Event> events = new HashMap<>();
+        events.put(new Point(0, 0), e1);
+        events.put(new Point(1, 1), e2);
+        events.put(new Point(2, 2), e3);
+        events.put(new Point(3, 3), e4);
+        World world = new World(events, new Manhattan());
+
+        Point startingPoint = new Point(4, 4);
+
+        // events made but not in the world
+        Event e5 = fact.newEvent("E5");
+        Event e6 = fact.newEvent("E6");
+        Event e7 = fact.newEvent("E7");
+        Event e8 = fact.newEvent("E8");
+
+
+        assertTrue(world.distanceToEvent(startingPoint, e5) < 0);
+        assertTrue(world.distanceToEvent(startingPoint, e6) < 0);
+        assertTrue(world.distanceToEvent(startingPoint, e7) < 0);
+        assertTrue(world.distanceToEvent(startingPoint, e8) < 0);
+    }
+
+    @Test
+    public void testDistanceToExistingEventsIsCorrect() {
+        EventFactory fact = new EventFactory();
+        Event e1 = fact.newEvent("E1");
+        Event e2 = fact.newEvent("E2");
+        Event e3 = fact.newEvent("E3");
+        Event e4 = fact.newEvent("E4");
+        Map<Point, Event> events = new HashMap<>();
+        events.put(new Point(0, 0), e1);
+        events.put(new Point(1, 1), e2);
+        events.put(new Point(2, 2), e3);
+        events.put(new Point(3, 3), e4);
+        World world = new World(events, new Manhattan());
+
+        Point startingPoint = new Point(-2, -2);
+
+        assertEquals(4, world.distanceToEvent(startingPoint, e1));
+        assertEquals(6, world.distanceToEvent(startingPoint, e2));
+        assertEquals(8, world.distanceToEvent(startingPoint, e3));
+        assertEquals(10, world.distanceToEvent(startingPoint, e4));
+    }
+
 
 }

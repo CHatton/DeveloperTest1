@@ -80,8 +80,6 @@ public class EventRunner {
             case 3:
                 System.out.println("Goodbye!");
                 return false; // indicate the program should stop.
-            default:
-                System.out.println("Please enter a valid option.");
         }
         return true;
     }
