@@ -34,3 +34,17 @@ When looking for the N closest events, you could implement this by finding the c
 How would you change your program if you were working with a much larger world size? 
 
 I think the current sparse matrix implementation would scale up quite well, as opposed to a box-matrix collection. However if the world size got a lot larger, you could segment up the world into multiple smaller worlds, you could then look for events in these smaller/closer to the customer worlds first. These could be prioritised based on any number of categories and determined on a per user basis.
+
+# How to run the code
+
+I've included a runnable jar in this respository.
+
+Simply download the jar file at build/viagogo-dev-test.jar
+
+Navigate to the directory the file was downloaded to, and run the command
+
+```bash
+java -jar viagogo-dev-test.jar
+```
+
+You'll need to have Java 1.8+ installed.
