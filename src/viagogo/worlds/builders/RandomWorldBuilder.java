@@ -1,8 +1,10 @@
-package viagogo.worlds;
+package viagogo.worlds.builders;
 
 import viagogo.events.Event;
 import viagogo.events.EventFactory;
 import viagogo.events.Ticket;
+import viagogo.worlds.Point;
+import viagogo.worlds.World;
 import viagogo.worlds.distancemetrics.Manhattan;
 
 import java.util.*;

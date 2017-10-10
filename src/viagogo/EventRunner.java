@@ -4,9 +4,9 @@ package viagogo;
 import viagogo.events.Event;
 import viagogo.events.Ticket;
 import viagogo.worlds.Point;
-import viagogo.worlds.RandomWorldBuilder;
+import viagogo.worlds.builders.RandomWorldBuilder;
 import viagogo.worlds.World;
-import viagogo.worlds.WorldBuilder;
+import viagogo.worlds.builders.WorldBuilder;
 
 import java.util.List;
 import java.util.Optional;
