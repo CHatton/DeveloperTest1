@@ -1,8 +1,8 @@
-package dev.viagogo.worlds;
+package viagogo.worlds;
 
-import dev.viagogo.events.Event;
-import dev.viagogo.worlds.distancemetrics.DistanceMetric;
-import dev.viagogo.worlds.distancemetrics.Manhattan;
+import viagogo.events.Event;
+import viagogo.worlds.distancemetrics.DistanceMetric;
+import viagogo.worlds.distancemetrics.Manhattan;
 
 import java.util.*;
 import java.util.stream.Collectors;

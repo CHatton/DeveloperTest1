@@ -1,13 +1,14 @@
-package test.viagogo.events;
+package viagogo.events;
 
-import dev.viagogo.events.Event;
-import dev.viagogo.events.Ticket;
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertFalse;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class EventTest {
 

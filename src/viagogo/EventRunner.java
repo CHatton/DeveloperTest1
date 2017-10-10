@@ -1,11 +1,11 @@
-package dev.viagogo;
+package viagogo;
 
-import dev.viagogo.events.Event;
-import dev.viagogo.events.Ticket;
-import dev.viagogo.worlds.Point;
-import dev.viagogo.worlds.RandomWorldBuilder;
-import dev.viagogo.worlds.World;
-import dev.viagogo.worlds.WorldBuilder;
+import viagogo.events.Event;
+import viagogo.events.Ticket;
+import viagogo.worlds.Point;
+import viagogo.worlds.RandomWorldBuilder;
+import viagogo.worlds.World;
+import viagogo.worlds.WorldBuilder;
 
 import java.util.List;
 import java.util.Optional;

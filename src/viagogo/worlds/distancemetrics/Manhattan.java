@@ -1,6 +1,6 @@
-package dev.viagogo.worlds.distancemetrics;
+package viagogo.worlds.distancemetrics;
 
-import dev.viagogo.worlds.Point;
+import viagogo.worlds.Point;
 
 public class Manhattan implements DistanceMetric {
 

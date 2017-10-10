@@ -1,14 +1,12 @@
-package test.viagogo.worlds;
+package viagogo.worlds;
 
 
-import dev.viagogo.events.Event;
-import dev.viagogo.worlds.Point;
-import dev.viagogo.worlds.World;
-import org.junit.Test;
+import org.testng.annotations.Test;
+import viagogo.events.Event;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class WorldTest {
 

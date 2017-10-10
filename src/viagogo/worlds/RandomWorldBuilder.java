@@ -1,7 +1,7 @@
-package dev.viagogo.worlds;
+package viagogo.worlds;
 
-import dev.viagogo.events.Event;
-import dev.viagogo.events.Ticket;
+import viagogo.events.Event;
+import viagogo.events.Ticket;
 
 import java.util.HashSet;
 import java.util.Random;

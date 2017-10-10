@@ -1,4 +1,4 @@
-package dev.viagogo.events;
+package viagogo.events;
 
 import java.util.*;
 import java.util.stream.Collectors;

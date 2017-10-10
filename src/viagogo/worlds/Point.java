@@ -1,4 +1,4 @@
-package dev.viagogo.worlds;
+package viagogo.worlds;
 
 public class Point  {
 
