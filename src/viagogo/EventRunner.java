@@ -25,7 +25,6 @@ public class EventRunner {
     }
 
     private static void displayOptions() {
-        System.out.println("Choose option:");
         System.out.println("1.) Find events near you.");
         System.out.println("2.) Display all events and locations.");
         System.out.println("3.) Exit.");
@@ -33,8 +32,17 @@ public class EventRunner {
 
     private static boolean processOptions(World world) {
         Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = -1;
+        do {
+            System.out.println("Choose an option:");
+            System.out.print(">");
+            try {
+                option = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) { // parsing error.
+                System.out.println("please enter an integer value.");
+            }
+        } while (option < 0 || option > 4);
+
 
         switch (option) {
             case 1:
@@ -47,7 +55,6 @@ public class EventRunner {
                     System.out.print(">");
                     String coordsAsString = sc.nextLine().trim();
                     try {
-
                         // allow spaces between comma and digits.
                         String[] coordsAsArr = coordsAsString.split("\\s*,\\s*");
                         if (coordsAsArr.length != 2) { // too few or too many comma separated values provided.
@@ -63,8 +70,9 @@ public class EventRunner {
                 Point point = new Point(x, y);
 
                 List<Event> closeEvents = world.getClosestEvents(point);
-                System.out.println("Closest events to (" + x + "," + y + "):");
+                System.out.println("Closest events to (" + x + "," + y + "):\n");
                 closeEvents.forEach(event -> System.out.println(renderEventInformation(event, point, world)));
+                System.out.println();
                 break;
             case 2:
                 System.out.println(world);

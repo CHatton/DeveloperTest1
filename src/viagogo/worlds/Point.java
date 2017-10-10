@@ -25,7 +25,7 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return x | y & x ^ y;
+        return x | y * 7;
     }
 
     @Override
