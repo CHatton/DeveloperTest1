@@ -1,6 +1,6 @@
 package viagogo.worlds;
 
-public class Point  {
+public class Point {
 
     private final int x;
     private final int y;
@@ -16,6 +16,11 @@ public class Point  {
 
     public int y() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + "," + y + ")";
     }
 
     @Override

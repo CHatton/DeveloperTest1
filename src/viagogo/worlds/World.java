@@ -2,7 +2,6 @@ package viagogo.worlds;
 
 import viagogo.events.Event;
 import viagogo.worlds.distancemetrics.DistanceMetric;
-import viagogo.worlds.distancemetrics.Manhattan;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,10 +10,6 @@ public class World {
 
     private DistanceMetric distanceMetric;
     private final Map<Point, Event> events;
-
-    public World() {
-        this(new Manhattan());
-    }
 
     public World(DistanceMetric distanceMetric) {
         this.distanceMetric = distanceMetric;
@@ -61,5 +56,24 @@ public class World {
 
     public List<Event> getClosestEvents(Point point) {
         return getClosestEvents(point, 5);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Num events: ")
+                .append(events.size())
+                .append("\n");
+
+        sb.append("===== Events =====\n");
+        events.keySet().forEach((point) ->
+                sb.append(events.get(point))
+                        .append(" happening at ")
+                        .append(point)
+                        .append("\n"));
+
+        sb.append("=================\n");
+
+        return sb.toString();
     }
 }

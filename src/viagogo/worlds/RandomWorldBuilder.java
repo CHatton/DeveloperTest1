@@ -2,6 +2,7 @@ package viagogo.worlds;
 
 import viagogo.events.Event;
 import viagogo.events.Ticket;
+import viagogo.worlds.distancemetrics.Manhattan;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -20,7 +21,7 @@ public class RandomWorldBuilder implements WorldBuilder {
     public RandomWorldBuilder(int numEvents, int maxTickets) {
         this.numEvents = numEvents;
         this.maxTickets = maxTickets;
-        world = new World();
+        world = new World(new Manhattan());
         rnd = new Random();
         usedPoints = new HashSet<>();
     }
@@ -48,8 +49,8 @@ public class RandomWorldBuilder implements WorldBuilder {
     private Point generateUnusedPoint() {
         Point point;
         do {
-            int xPos = rnd.nextInt(UPPER_LIMIT) + 1;
-            int yPos = rnd.nextInt(UPPER_LIMIT) + 1;
+            int xPos = rnd.nextInt(UPPER_LIMIT + 1);
+            int yPos = rnd.nextInt(UPPER_LIMIT + 1);
             // gives an approx 50/50 chance of changing the sign. leaving the range at -10 -> +10
             if (rnd.nextBoolean()) {
                 xPos *= -1;
