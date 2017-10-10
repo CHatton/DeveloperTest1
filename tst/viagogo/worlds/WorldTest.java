@@ -3,24 +3,29 @@ package viagogo.worlds;
 
 import org.testng.annotations.Test;
 import viagogo.events.Event;
+import viagogo.events.EventFactory;
+import viagogo.worlds.distancemetrics.Manhattan;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class WorldTest {
 
     private World buildWorld() {
-        World world = new World();
-        world.addEventAt(new Event("Event1"), new Point(0, 0));
-        world.addEventAt(new Event("Event2"), new Point(1, 1));
-        world.addEventAt(new Event("Event3"), new Point(4, 9));
-        world.addEventAt(new Event("Event4"), new Point(3, 3));
-        world.addEventAt(new Event("Event5"), new Point(4, -4));
-        world.addEventAt(new Event("Event6"), new Point(5, -5));
-        world.addEventAt(new Event("Event7"), new Point(-6, 6));
-        world.addEventAt(new Event("Event8"), new Point(-8, -5));
-        return world;
+        EventFactory fact = new EventFactory();
+        Map<Point, Event> events = new HashMap<>();
+        events.put(new Point(0, 0), fact.newEvent("Event1"));
+        events.put(new Point(1, 1), fact.newEvent("Event2"));
+        events.put(new Point(4, 9), fact.newEvent("Event3"));
+        events.put(new Point(3, 3), fact.newEvent("Event4"));
+        events.put(new Point(4, -4), fact.newEvent("Event5"));
+        events.put(new Point(5, -5), fact.newEvent("Event6"));
+        events.put(new Point(-6, 6), fact.newEvent("Event7"));
+        events.put(new Point(-8, -5), fact.newEvent("Event8"));
+        return new World(events, new Manhattan());
     }
 
     @Test

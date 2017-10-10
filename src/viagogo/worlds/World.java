@@ -16,16 +16,13 @@ public class World {
         this.distanceMetric = distanceMetric;
     }
 
-    public int distanceToEvent(Point start, Event event) {
+    public int distanceToEvent(final Point start, final Event event) {
         Optional<Point> eventPoint = getEventPoint(event);
         // negative number to indicate point doesn't exist.
         return eventPoint.isPresent() ? distanceMetric.distanceBetween(start, eventPoint.get()) : -1;
     }
 
-    private Optional<Point> getEventPoint(Event event) {
-        if (!events.containsValue(event)) {
-            throw new IllegalArgumentException("Event [%s] is not in the world." + event);
-        }
+    private Optional<Point> getEventPoint(final Event event) {
         for (Map.Entry<Point, Event> entry : events.entrySet()) {
             if (entry.getValue().equals(event)) {
                 return Optional.of(entry.getKey());
@@ -35,7 +32,7 @@ public class World {
     }
 
 
-    public List<Event> getClosestEvents(Point point, int n) {
+    public List<Event> getClosestEvents(final Point point, final int n) {
         // assuming you want to return all up to a number if the world doesn't contain enough points.
         int numToReturn = n < events.size() ? n : events.size();
         // sort the points based on distance from the point provided, not each other.
@@ -48,7 +45,7 @@ public class World {
                 .collect(Collectors.toList()); // give them back as a list.
     }
 
-    public List<Event> getClosestEvents(Point point) {
+    public List<Event> getClosestEvents(final Point point) {
         return getClosestEvents(point, 5);
     }
 

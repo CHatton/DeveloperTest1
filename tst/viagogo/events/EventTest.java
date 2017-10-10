@@ -14,7 +14,8 @@ public class EventTest {
 
     @Test
     public void testCheapestTicketIsCheapest() {
-        Event e1 = new Event("Event1", Arrays.asList(
+        EventFactory fact = new EventFactory();
+        Event e1 = fact.newEvent("Event1", Arrays.asList(
                 new Ticket(1000),
                 new Ticket(5000),
                 new Ticket(2000),
@@ -26,7 +27,7 @@ public class EventTest {
         assertTrue(cheapest.isPresent());
         assertEquals(500, cheapest.get().getPrice());
 
-        Event e2 = new Event("Event3");
+        Event e2 = fact.newEvent("Event3");
         e2.addTicket(new Ticket(3000));
 
         Optional<Ticket> cheapestE2 = e2.getCheapestTicket();
@@ -36,9 +37,9 @@ public class EventTest {
 
     @Test
     public void testEventWithNoTicketsHasNoCheapest() {
-        Event e1 = new Event("Event1");
+        EventFactory fact = new EventFactory();
+        Event e1 = fact.newEvent("Event1");
         Optional<Ticket> cheapest = e1.getCheapestTicket();
         assertFalse(cheapest.isPresent());
-
     }
 }
