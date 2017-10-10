@@ -52,3 +52,11 @@ java -jar viagogo-dev-test.jar
 ```
 
 You'll need to have Java 1.8+ installed.
+
+
+# Additional Notes
+
+- The method I used to return the N nearest events to a given point has a time complexity of O(n log n), so it should scale quite well.
+- I chose to use an interface to represent the distance metric as in practice, it would be useful to be able to swap out implementations, it would be quite simple to create a world using a new Euclidian() instead of a Manhattan().
+- I chose to use the java.util.Optional return type in favour of ever using null.
+- I opted to make my classes immutable wherever I could.
