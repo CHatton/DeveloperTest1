@@ -29,7 +29,7 @@ public class Event {
         }
 
         Ticket cheapest = tickets.stream()
-                .sorted(Comparator.comparingInt(Ticket::getPrice))
+                .sorted(Comparator.comparingLong(Ticket::getPrice))
                 .collect(Collectors.toList())
                 .get(0);
 
