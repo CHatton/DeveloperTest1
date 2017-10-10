@@ -3,16 +3,16 @@ package viagogo.events;
 public class Ticket {
     // using int to represent price in pennies to avoid floating point
     // arithmetic errors.
-    private final int price;
+    private final long price;
 
-    public Ticket(int price) {
+    public Ticket(long price) {
         if (price <= 0) { // ticket must have a non-zero value.
             throw new IllegalArgumentException("Price must be > 0. Provided value: " + price);
         }
         this.price = price;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
