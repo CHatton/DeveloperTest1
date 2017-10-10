@@ -10,10 +10,6 @@ public class Event {
     private final long id; // every event will have a unique id
 
 
-    public Event(String name, long id) { // default we have no tickets.
-        this(name, id, new ArrayList<>());
-    }
-
     public Event(String name, long id, List<Ticket> tickets) {
         this.name = name;
         this.tickets = new ArrayList<>(tickets);

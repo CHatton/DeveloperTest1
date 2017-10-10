@@ -1,7 +1,7 @@
 package viagogo.events;
 
 public class Ticket {
-    // using int to represent price in pennies to avoid floating point
+    // using long to represent price in pennies to avoid floating point
     // arithmetic errors.
     private final long price;
 

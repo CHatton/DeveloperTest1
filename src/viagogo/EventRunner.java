@@ -17,10 +17,10 @@ public class EventRunner {
     public static void main(String[] args) {
         WorldBuilder builder = new RandomWorldBuilder(10, 4);
         World world = builder.build();
-
-        while (true) {
+        boolean shouldRun = true;
+        while (shouldRun) {
             displayOptions();
-            processOptions(world);
+            shouldRun = processOptions(world);
         }
     }
 
@@ -31,7 +31,7 @@ public class EventRunner {
         System.out.println("3.) Exit.");
     }
 
-    private static void processOptions(World world) {
+    private static boolean processOptions(World world) {
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
         sc.nextLine();
@@ -64,23 +64,21 @@ public class EventRunner {
 
                 List<Event> closeEvents = world.getClosestEvents(point);
                 System.out.println("Closest events to (" + x + "," + y + "):");
-                closeEvents.forEach(event -> displayEventInformation(event, point, world));
+                closeEvents.forEach(event -> System.out.println(renderEventInformation(event, point, world)));
                 break;
             case 2:
                 System.out.println(world);
                 break;
             case 3:
                 System.out.println("Goodbye!");
-                //sc.close();
-                System.exit(0);
-                break;
+                return false; // indicate the program should stop.
             default:
                 System.out.println("Please enter a valid option.");
         }
-        // sc.close();
+        return true;
     }
 
-    private static void displayEventInformation(Event event, Point origin, World world) {
+    private static String renderEventInformation(Event event, Point origin, World world) {
         StringBuilder sb = new StringBuilder();
         long id = event.getId();
         sb.append(String.format("Event ID: %03d - ", id));
@@ -92,7 +90,7 @@ public class EventRunner {
         }
         int distance = world.distanceToEvent(origin, event);
         sb.append("distance: ").append(distance);
-        System.out.println(sb.toString());
+        return sb.toString();
     }
 
 }
